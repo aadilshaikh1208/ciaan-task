@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import PostCard from '@/components/Post/PostCard';
-import AnimatedPage from '@/components/UI/AnimatedPage';
-import ScrollReveal from '@/components/UI/ScrollReveal';
+import AnimatedPage from '@/components/ui/AnimatedPage';
+import ScrollReveal from '@/components/ui/ScrollReveal';
 import { getProfile } from '@/lib/user';
 import { getPosts, Post } from '@/lib/posts';
 

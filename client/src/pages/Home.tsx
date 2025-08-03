@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import CreatePost from '@/components/Post/CreatePost';
 import PostCard from '@/components/Post/PostCard';
-import AnimatedPage from '@/components/UI/AnimatedPage';
-import ScrollReveal from '@/components/UI/ScrollReveal';
+import AnimatedPage from '@/components/ui/AnimatedPage';
+import ScrollReveal from '@/components/ui/ScrollReveal';
 import { getPosts, Post } from '@/lib/posts';
 
 const Home = () => {
