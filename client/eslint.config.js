@@ -3,19 +3,27 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
+import eslintPluginImport from "eslint-plugin-import";
 
 export default tseslint.config(
   { ignores: ["dist"] },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+      "plugin:import/errors",
+      "plugin:import/warnings",
+    ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      sourceType: "module",
     },
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      import: eslintPluginImport,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -24,6 +32,16 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "@typescript-eslint/no-unused-vars": "off",
+
+      // ✅ Enforce case-sensitive import paths
+      "import/no-unresolved": "error",
+      "import/no-named-as-default": "warn",
+      "import/no-case-sensitive-path": "error",
+    },
+    settings: {
+      "import/resolver": {
+        typescript: true,
+      },
     },
   }
 );
